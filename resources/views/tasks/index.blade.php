@@ -60,14 +60,24 @@
 
 
     <script>
-        // $(function() {
-        //
-        //     // page is now ready, initialize the calendar...
-        //
-        //     $('#calendar').fullCalendar({
-        //         // put your options and callbacks here
-        //     })
-        //
-        // });
+        $(function() {
+
+            // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+
+                events : [
+                        @foreach($tasks as $task)
+                    {
+                        title : '{{ $task->title }}',
+                        start : '{{ $task->deadline_date }}',
+                        url : '{{ route('tasks.show', $task->id) }}'
+                    },
+                    @endforeach
+                ]
+            })
+
+        });
     </script>
 @endsection
