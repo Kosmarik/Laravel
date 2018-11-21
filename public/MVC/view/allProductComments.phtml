@@ -1,0 +1,72 @@
+<?php
+$comments = $this->commentarai;
+
+//echo '<pre>';
+//var_dump($comments);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        .back-button{
+            border: #04b0db 1px solid;
+            width: 200px;
+            padding: 15px;
+            border-radius: 15px;
+            background-color: springgreen;
+            color: white;
+            text-align: center;
+        }
+        .comments-main{
+            width: 80%;
+            height: max-content;
+            /*background-color: red;*/
+            margin: 0 auto;
+            text-align: center;
+        }
+        .comment{
+            width: 80%;
+            height: max-content;
+            padding: 15px;
+            background-color: springgreen;
+            border-radius: 15px;
+            margin: 15px auto;
+            text-align: left;
+            color: white;
+            font-size: x-large;
+        }
+        .back-button:hover{
+            background-color: springgreen;
+            border: springgreen 1px solid;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <a href="/MVC/index.php/products">
+            <h3 class="back-button"><--- Back To Producs</h3>
+        </a>
+    </div>
+    <?php if(!empty($comments)): ?>
+        <div class="comments-main">
+            <?php foreach ($comments as $comment): ?>
+                <div class="comment">
+                    <?php echo $comment[0];?>
+                    <hr>
+                    <?php echo $comment[1];?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php else: ?>
+        <div class="comments-main">
+            <div class="comment">No Comments For This Product :(</div>
+        </div>
+    <?php endif;?>
+
+</body>
+</html>

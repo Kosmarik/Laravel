@@ -1,0 +1,40 @@
+<?php $products = $this->products; ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="../style/allProducts.css" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+        <?php if(!isset($_SESSION['userName'])): ?>
+            <div class="header">
+                <div class="header-login"><a href="http://185.80.130.158/MVC/index.php/LogIn">LogIn</a></div>
+            </div>
+        <?php endif; ?>
+        <?php if(isset($_SESSION['userName'])): ?>
+            <div class="header">
+                <div class="header-login"><a href="http://185.80.130.158/MVC/index.php/LogIn">Logout</a></div>
+            </div>
+        <?php endif; ?>
+        <ul>
+                <?php foreach ($products as $productArray): ?>
+                    <li>
+                        <div class="product-image"><img class="product-img" src="<?php echo $productArray[1];?>"></div>
+                        <h2 class="btc"><?php echo  $productArray[2]?></h2>
+                        <h3 class="dol"><?php echo $productArray[3];?> $</h3>
+                        <h4><a class="nuoroda" href="products/product/<?php echo  $productArray[0]; ?>">View Product</a></h4>
+                    </li>
+                <?php endforeach; ?>
+                <?php if(isset($_SESSION['userStatus']) && $_SESSION['userStatus'] == 'admin'): ?>
+                    <li>
+                        <div class="product-img">
+                            <a href="http://185.80.130.158/MVC/view/addProduct.phtml"><img class="product-img" src="http://pngimages.net/sites/default/files/plus-png-image-59147.png"></a>
+                        </div>
+                    </li>
+                <?php endif; ?>
+        </ul>
+    </body>
+</html>
+
+
+

@@ -1,0 +1,203 @@
+.productBase{
+    width: 50%;
+    height: 700px;
+    background-color: #F0FFF0;
+    margin: 0 auto;
+    border-radius: 50px;
+    text-align: center;
+    border: #009688 1px solid;
+}
+.name{
+    border: #dedede 1px solid;
+    border-radius: 50px;
+    width: 200px;
+    padding: 20px;
+    background-color: springgreen;
+    color: white;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+img{
+    width: 400px;
+    height: 400px;
+    border-radius: 80px;
+    display: block;
+    margin: 0 auto;
+    padding: 30px;
+}
+.a-back-button{
+    text-decoration: none;
+    color: white;
+    border: #dedede 1px solid;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: springgreen;
+    float: left;
+}
+a:hover{
+    background-color: #009688;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    height: 500px;
+}
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.for-comment{
+    width: 80%;
+    /*border: #dedede 1px solid;*/
+    margin: 0 auto;
+    text-align: center;
+    /*border-radius: 40px;*/
+    padding: 50px;
+}
+.comment-for-name{
+    height: 50px;
+    width: 300px;
+    border-radius: 15px;
+    border: #009688 1px solid;
+    font-size: x-large;
+    color: #009688;
+}
+.comment-for-text{
+    width: 60%;
+    height: 30vh;
+    margin-top: 20px;
+     border: #009688 1px solid;
+     border-radius: 10px;
+    font-size: x-large;
+    color: #009688;
+}
+.comment-for-submit{
+    height: 50px;
+    width: 100px;
+    border: #009688 1px solid;
+    border-radius: 15px;
+    font-size: x-large;
+    color: #009688;
+}
+.show-comment{
+    width: 80%;
+    height: max-content;
+    margin: 0 auto;
+    border: #009688 1px solid;
+    border-radius: 15px;
+    font-size: x-large;
+    color: white;
+    text-align: center;
+    background-color: springgreen;
+}
+.user-comment{
+    width: 60%;
+    height: max-content;
+    background-color: springgreen;
+    border-radius: 15px;
+    color: white;
+    font-size: x-large;
+    border: #dedede 1px solid;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px
+}
+.comment-hr{
+    height: 5px;
+    width: 80%;
+    background-color: white;
+    border: none;
+    margin-left: 0;
+    border-radius: 10px;
+}
+.comment-header{
+    width: 60%;
+    text-align: center;
+    height: max-content;
+    background-color: springgreen;
+    border-radius: 15px;
+    color: white;
+    font-size: x-large;
+    border: #dedede 1px solid;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 20px
+}
+.view-all-comments-button{
+    text-decoration: none;
+    color: white;
+    border: #dedede 1px solid;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: springgreen;
+}
+.comment-view-all{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+
+}

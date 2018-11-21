@@ -1,0 +1,110 @@
+<?php
+//require_once '/var/www/html/MVC/model/CommentModel.php';
+//echo "<pre>";
+$product = $this->product;
+//var_dump($product);
+$comments = $this->comment;
+$comentarai = array_reverse($comments);
+$someComments = array();
+if(!empty($comentarai[0]) && !empty($comentarai[1]) && !empty($comentarai[2])) {
+    $someComments = [$comentarai[0], $comentarai[1], $comentarai[2]];
+    }elseif (!empty($comentarai[0]) && !empty($comentarai[1]) && empty($comentarai[2])){
+    $someComments = [$comentarai[0], $comentarai[1]];
+    }elseif (!empty($comentarai[0]) && empty($comentarai[1]) && empty($comentarai[2])){
+    $someComments = [$comentarai[0]];
+}
+//var_dump($someComments);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/MVC/style/product.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<!--    Mygtukas Atgal prie produktu-->
+<div>
+    <a class="a-back-button" href="/MVC/index.php/products">
+        <h3><---- Back to Shop List</h3>
+    </a>
+</div>
+<!--Productas -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+<?php foreach ($product as $productArr): ?>
+    <div class="productBase">
+        <div>
+            <img id="myImg" alt="<?php echo $productArr[2]; ?>" src="<?php echo $productArr[1]; ?>">
+            <h2 class="name"><?php echo $productArr[2]; ?></h2>
+            <h3 class="name"><?php echo $productArr[3]; ?>$</h3>
+        </div>
+    </div>
+<?php endforeach; ?>
+
+<!--Forma komentarams-->
+<?php if(isset($_SESSION['userStatus'])): ?>
+<div class="for-comment">
+    <form action="http://185.80.130.158/MVC/index.php/comments" name="usrform" method="POST" id="commentForm">
+        <?php foreach ($product as $productArr): ?>
+            <input name="id" type="hidden" value="<?php echo $productArr[0]; ?>">
+        <?php endforeach; ?>
+        <input class="comment-for-name" placeholder="   Name:" type="text" value="" name="usrname">
+        <input class="comment-for-submit" type="submit" value="--->">
+        <br>
+        <textarea rows="4" cols="50" class="comment-for-text" name="comment"
+                  placeholder="Enter your comment here..."></textarea>
+    </form>
+</div>
+<?php endif; ?>
+<!--    komentaru isvedimas -->
+    <div class="comment-header">
+        Comments of this product!!!
+    </div>
+    <?php if(!empty($someComments)): ?>
+        <?php foreach ($someComments as $comment): ?>
+            <div class="user-comment">
+                <p class="comment-username"><?php echo $comment[0]; ?></p>
+                <hr class="comment-hr">
+                <p><?php echo $comment[1]; ?></p>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+            <div class="comment-header">
+                <p>No Comments of this product!!!</p>
+            </div>
+    <?php endif;?>
+<!--paspaudus ant migtuko nukels i view comment page-->
+<div class="comment-view-all">
+    <?php foreach ($product as $element): ?>
+            <h4><a class="view-all-comments-button" href="http://185.80.130.158/MVC/index.php/products/comments/<?php echo $element[0]; ?>">View all product comments</a></h4>
+    <?php endforeach;?>
+</div>
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById('myImg');
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>
+</body>
+</html>

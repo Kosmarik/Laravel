@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        input{
+            width: 60%;
+            margin: 30px;
+            height: 50px;
+            border: springgreen 3px solid;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .for-form{
+            margin: 0 auto;
+            border: 5px solid springgreen;
+            width: 60%;
+            border-radius: 30px;
+            text-align: center;
+            background-color: #F0FFF0;
+        }
+        .add{
+            background-color: springgreen;
+            color: white;
+            font-size: larger;
+        }
+        .add:hover{
+            background-color: #008896;
+        }
+    </style>
+</head>
+<body>
+        <div class="for-form">
+            <form method="post" action="../controller/Addproduct.php">
+                <input type="text" name="productImage" placeholder="Product Image Address">
+                <br>
+                <input type="text" name="productName" placeholder="Your product name">
+                <br>
+                <input type="text" name="productPrice" placeholder="Your product price ">
+                <br>
+                <input class="add" type="submit" value="Add Product"/>
+            </form>
+        </div>
+</body>
+</html>

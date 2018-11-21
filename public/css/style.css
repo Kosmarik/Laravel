@@ -1,0 +1,149 @@
+.comment-card{
+    border-radius: 30px;
+    height: 400px;
+    text-align: left;
+}
+body{
+    background-image: url('../img/gaming-pattern/gaming-pattern.png');
+    background-color: #f1f1f1;
+}
+.for-comment-name{
+    margin-top: 10px;
+    background-color: springgreen;
+    color: white;
+}
+.card{
+    margin-top: 10px;
+}
+.div-for-comment-text{
+    opacity: 0%;
+}
+.div-for-comment-add{
+    margin: 10px;
+}
+.comment-for-text{
+    border: 3px springgreen solid;
+    height: 200px;
+    margin-top: 10px;
+    border-radius: 30px;
+}
+.for-comment{
+    margin-top: 10px;
+    border: springgreen 3px solid;
+    padding: 10px;
+    height: max-content;
+}
+.my-navbar{
+    background-color: #1d2124;
+}
+.my-drop{
+     background-color: #1d2124;
+    opacity: 50%;
+ }
+.my-drop:hover{
+    background-color: #1d2124 ;
+}
+
+
+
+/*Invoice*/
+.invoice-container{
+    width: 8.3in;
+    height: 11.7in;
+    margin: 0 auto;
+    background-color: white;
+    border: black 1px solid;
+}
+.invoice-number{
+    text-align: right;
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+    /*background-color: red;*/
+    margin-top: 100px;
+}
+.invoice-date{
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+    height: 50px;
+    /*background-color: yellow;*/
+}
+.invoice-name{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+    /*background-color: green;*/
+    color: black;
+}
+.invoice-table{
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+
+    /*background-color: yellow;*/
+}
+table,th{
+    border: 1px black solid;
+    font-size: medium;
+    width: 100%;
+}
+td{
+    border: black 1px solid;
+}
+.left-td{
+    width: 30%;
+}
+.right-td{
+    width: 70%;
+    font-size: x-large;
+}
+.invoice-th{
+    text-align: center;
+}
+.invoice-footer{
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.invoice-footer-content{
+    width: 50%;
+    text-align: left;
+}
+.invoke-submit{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 120px;
+    text-align: center;
+}
+
+.delete-btn{
+    background-color: #ffffb3;
+    border: 0px;
+    opacity: 0.5;
+}
+.delete-btn:hover{
+    opacity: 1;
+    color: red;
+}
+.company-create-input{
+    margin-top: 20px;
+}
+.company-single-container{
+    margin: 0 auto;
+    height: max-content;
+    background-color: mintcream;
+    width: 50%;
+}
+.company-single-buttons-div{
+    margin: 0 auto;
+    height: max-content;
+    /*background-color: mintcream;*/
+    width: 50%;
+}
+
+.task-container-hover:hover{
+    background-color: 	#DCDCDC;
+}

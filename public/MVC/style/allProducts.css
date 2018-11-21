@@ -1,0 +1,83 @@
+ul{
+    list-style: none;
+    /*color: white;*/
+}
+li{
+    width: 400px;
+    height: max-content;
+    float: left;
+    border: #dedede 1px solid;
+    margin: 10px;
+    background-color: #F0FFF0;
+    text-align: center;
+    border-radius: 20px;
+}
+.product-img{
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.product-img:hover{
+    opacity: 0.7;
+}
+
+.dol{
+    border: 1px #dedede solid;
+    background-color: springgreen;
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+.btc{
+    border: 1px solid #dedede;
+    margin: 0 auto;
+    background-color: springgreen;
+    width: 300px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+}
+.nuoroda{
+    border: #dedede 1px solid;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: springgreen;
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+}
+.nuoroda:hover{
+    background-color: #009688;
+}
+footer{
+    height: 70px;
+    background-color: springgreen;
+    color: white;
+}
+.header{
+    /*border: springgreen 1px solid;*/
+    /* width: 100px; */
+    height: 50px;
+    /* border-radius: 10px; */
+    color: white;
+    text-align: center;
+    /* float: right; */
+}
+.header-login{
+     width: 5%;
+    /* height: 100%; */
+    padding: 10px;
+    float: right;
+    /* border: springgreen 1px solid; */
+    border-radius: 15px;
+    background-color: springgreen;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}

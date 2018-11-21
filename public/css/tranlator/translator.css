@@ -1,0 +1,34 @@
+.main{
+    text-align: center;
+    font-size: xx-large;
+}
+.value-rus{
+    width: 50%;
+    padding: 50px;
+    background-color: aqua;
+    color: white;
+    border: #dedede 1px solid;
+    border-radius: 20px;
+    margin:0 auto;
+    margin-top: 50px;
+}
+.value-en{
+    width: 50%;
+    padding: 50px;
+    background-color: white;
+    color: white;
+    border: white 1px solid;
+    border-radius: 20px;
+    margin:0 auto;
+    margin-top: 50px;
+}
+a{
+    padding: 40px;
+    background-color: aqua;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+}
+.next-button{
+    margin-top: 100px;
+}
