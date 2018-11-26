@@ -62,21 +62,68 @@
     <script>
         $(function() {
 
+
             // page is now ready, initialize the calendar...
 
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
 
+                editable: true,
+                header:{
+                    left: 'prev, next today',
+                    center: 'title',
+                    right: 'month, agendaWeek, agendaDay'
+                },
+                selectable: true,
+                selectHelper: true,
+                eventStartEditable: true,
+                eventDurationEditable: true,
+
+
+
                 events : [
                         @foreach($tasks as $task)
                     {
+                        Boolean, default: false,
                         title : '{{ $task->title }}',
-                        start : '{{ $task->deadline_date }}',
-                        url : '{{ route('tasks.show', $task->id) }}'
+                        start : '{{ $task->start_date }}',
+                        end : '{{$task->deadline_date}}',
+                        {{--url : '{{ route('tasks.edit', $task->id) }}'--}}
                     },
+
+
+
+
                     @endforeach
-                ]
-            })
+                ],
+
+                eventDrop:function(event){
+                    var start_date = $.fullcalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+
+                    var deadline_date = $.fullcalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+
+                    var title = event.title;
+
+                    var id = event.id;
+
+                    $.ajax({
+
+                        type: 'POST',
+                        data: {title:title, id:id, start_date:start_date, deadline_date:deadline_date},
+                        url: "{{route('tasks.update', $task->id)}}",
+
+                        success:function(){
+                            calendar.fullCalendar('refetchEvents');
+                            alert('Event Updated');
+
+                        }
+                    });
+                },
+
+
+            });
+
+
 
         });
     </script>
