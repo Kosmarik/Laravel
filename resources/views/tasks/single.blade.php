@@ -110,12 +110,18 @@
                         <a class="btn btn-primary" style="width: 90%" href="{{route('tasks.pdf', $task->id)}}">Get Task PDF</a>
                     </div>
                 </div>
-                <div style="margin-top: 20px;">
+                <div id="del" style="margin-top: 20px; ">
+                    @can('delete task')
+                        <button class="btn btn-danger" style="width: 90%" onclick="del()">Delete Task</button>
+                    @endcan
+                </div>
+                <div id="confirm" style="margin-top: 20px; display: none; ">
                     @can('delete task')
                         <form  class="d-inline-flex justify-content-between" style="width: 90%" action="{{route('tasks.destroy', $task->id)}}" method="POST">
+
+                            <button class="btn btn-danger" style="width: 100%">Confirm</button>
                             @method('DELETE')
                             @csrf
-                            <button class="btn btn-danger" style="width: 100%">Delete Task</button>
                         </form>
                     @endcan
                 </div>
@@ -134,6 +140,16 @@
                 $("#showComment").show(1000);
                 $("#show").hide('');
             });
+
+
         });
+
+        function del(){
+            document.getElementById('del').style.display = 'none';
+
+            document.getElementById('confirm').style.display = 'block';
+
+
+        }
     </script>
 @endsection

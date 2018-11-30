@@ -83,8 +83,9 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
-                placeholder: 'write your comment here...',
+                placeholder: 'Content',
                 height: '300px',
+
             });
         });
     </script>

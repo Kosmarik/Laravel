@@ -213,4 +213,19 @@ class TasksController extends Controller
         }
         return view('tasks.taskPDF');
     }
+
+    public function updateAjax(Request $request){
+        $task_title = $_POST['title'];
+        $start = $_POST['start_date'];
+        $end = $_POST['deadline_date'];
+
+        Tasks::where('title',$task_title)->update([
+
+                'start_date'=>$start,
+                'deadline_date'=>$end
+
+            ]);
+
+
+    }
 }

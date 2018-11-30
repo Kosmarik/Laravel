@@ -52,7 +52,7 @@ Route::resources(['vocabularyList'=>'Vocabulary']);
 
 
 
-
+Route::post('update/task/ajax','TasksController@updateAjax')->name('tasks.updateajax');
 Route::get('generate-pdf', 'Vocabulary@pdfview')->name('generate-pdf');
 Route::get('task-pdf', 'TasksController@pdfview')->name('task-pdf');
 Route::get('faktura-pdf', 'CompaniesController@pdfview')->name('faktura-pdf');

@@ -61,65 +61,66 @@
 
     <script>
         $(function() {
-
-
             // page is now ready, initialize the calendar...
-
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
-
                 editable: true,
                 header:{
                     left: 'prev, next today',
                     center: 'title',
                     right: 'month, agendaWeek, agendaDay'
                 },
+                eventTextColor: 'white',
                 selectable: true,
                 selectHelper: true,
                 eventStartEditable: true,
                 eventDurationEditable: true,
-
-
-
                 events : [
                         @foreach($tasks as $task)
                     {
-                        Boolean, default: false,
+                        default: false,
                         title : '{{ $task->title }}',
                         start : '{{ $task->start_date }}',
                         end : '{{$task->deadline_date}}',
-                        {{--url : '{{ route('tasks.edit', $task->id) }}'--}}
                     },
-
-
-
-
                     @endforeach
                 ],
 
-                eventDrop:function(event){
-                    var start_date = $.fullcalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+                eventResize: function(event, delta, revertFunc){
 
-                    var deadline_date = $.fullcalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                        var end = event.end.format();
+                        var start = event.start.format();
+                        var title = event.title;
+                        // console.log(end);
+                        $.ajax({
+                            type:'POST',
+                            data:{title:title, deadline_date:end, start_date:start, _token: '{{csrf_token()}}'},
+                            url: "{{route('tasks.updateajax')}}",
+                            success:function(){
+                                alert('Success!!!');
+                            }
+                        });
+                },
 
+                eventDrop:function(event, delta, revertFunc){
+                    console.log(event.end.format());
+                    var start_date = event.start.format();
+                    if(event.end){
+                        var deadline_date = event.end.format();
+                    }else{
+                        var deadline_date = event.start.format();
+                    }
                     var title = event.title;
-
                     var id = event.id;
-
                     $.ajax({
-
                         type: 'POST',
-                        data: {title:title, id:id, start_date:start_date, deadline_date:deadline_date},
-                        url: "{{route('tasks.update', $task->id)}}",
-
+                        data: {title:title, id:id, start_date:start_date, deadline_date:deadline_date, _token: '{{csrf_token()}}'},
+                        url: "{{route('tasks.updateajax')}}",
                         success:function(){
-                            calendar.fullCalendar('refetchEvents');
-                            alert('Event Updated');
-
+                            alert('Success!!!');
                         }
                     });
                 },
-
 
             });
 
