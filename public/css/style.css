@@ -150,3 +150,22 @@ td{
 .glyphicon:hover{
     color: red;
 }
+.first-div{
+    animation-name: second-div-animation;
+    animation-duration: 1.5s;
+    position: relative;
+}
+.second-div{
+    animation-name: second-div-animation;
+    animation-duration: 2s;
+    position: relative;
+}
+@keyframes first-div-animation {
+    0%   {left: 1000px;}
+    100% {left: 0px;}
+}
+@keyframes second-div-animation {
+    0%   {right: 1000px;}
+    100% {right: 0px;}
+}
+

@@ -9,6 +9,7 @@
         $tasks_id[] = $task['id'];
     }
     $summa = array_sum($est);
+
 ?>
 <form action="#" method="post">
     <div class="invoice-container text-center" style="padding: 30px;">

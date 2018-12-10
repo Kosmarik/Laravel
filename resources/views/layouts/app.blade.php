@@ -90,7 +90,7 @@
 
                                 {{--Nav Vocabulary Icon--}}
                                 @role('admin')
-                                <a title="Vocabulary" class="navbar-brand text-white" href="{{ url('/vocabulary') }}">
+                                <a title="Vocabulary" class="navbar-brand text-white" href="{{ url('/admin') }}">
                                     <span class="glyphicon glyphicon-font"></span>
                                 </a>
                                 @endrole

@@ -12,7 +12,7 @@
                             <div class="card">
                                 <div class="card-header d-inline-flex justify-content-between">
                                     <div><strong>{{$project->name}}</strong></div>
-                                    <div><a href="projects/{{$project->id}}">placiau</a></div>
+                                    <div><a href="projects/{{$project->id}}">More</a></div>
                                 </div>
                             </div>
                     @endforeach

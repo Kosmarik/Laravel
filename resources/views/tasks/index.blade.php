@@ -4,10 +4,10 @@
 
 
     <div class="d-flex justify-content-between">
-        <div class="calendar col-md-6"  style="min-width: 300px;">
+        <div class="calendar col-md-8"  style="min-width: 300px;">
             <div id='calendar'></div>
         </div>
-        <div class="container col-md-5" style="border-left: 5px black solid">
+        <div class="container col-md-3" style="border-left: 5px black solid">
             <h3>All Tasks</h3>
 
                             @foreach($tasks as $task)
@@ -103,7 +103,7 @@
                 },
 
                 eventDrop:function(event, delta, revertFunc){
-                    console.log(event.end.format());
+                    // console.log(event.end.format());
                     var start_date = event.start.format();
                     if(event.end){
                         var deadline_date = event.end.format();

@@ -61,4 +61,7 @@ Route::resources(['bus'=>'BusController']);
 
 Route::resources(['calendar'=>'TasksCalendarController']);
 
+Route::post('/admin/setRole', 'AdminController@setRole')->name('setRole');
+Route::resources(['admin'=>'AdminController']);
+
 
