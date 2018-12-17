@@ -76,7 +76,7 @@
                     </form>
                 </div>
                     @foreach($comment as $comm)
-                        <div class="card comment-card for-comment" style=" margin-top: 10px; border: black 1px solid; background-color: #ffffb3">
+                        <div id="comm-show" class="card comment-card for-comment" style=" margin-top: 10px; border: black 1px solid; background-color: #ffffb3">
                             <form action="{{route('comment.destroy', $comm->id)}}" method="post">
                             @method('DELETE')
                                 @csrf
@@ -92,6 +92,16 @@
                             <div class=" font-italic"><h4>{!! $comm->comment !!}</h4></div>
                             <div class="text-right"><h6>{{$comm->created_at}}</h6></div>
                         </div>
+                    <div id="comm-edit" class="card comment-card for-comment" style=" margin-top: 10px; border: black 1px solid; background-color: #ffffb3">
+                        <form action="{{route('comment.update', $comm->id)}}" method="POST">
+                        @method('PUT')
+                        @csrf
+                            <input type="hidden" name="ta_id" value="{{$comm->task_id}}">
+                            <input type="hidden" name="cm_id" value="{{$comm->id}}">
+                            <input type="text" name="commentas" value=" {{$comm->comment}}">
+                            <input type="submit">
+                        </form>
+                    </div>
                     @endforeach
             </div>
             <div class="col-md-2" style="height: max-content; padding: 10px; text-align: center; margin-top: 11px; background-color: #E8E8E8; border: 1px black solid; border-radius: 30px;">

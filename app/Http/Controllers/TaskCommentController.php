@@ -75,7 +75,15 @@ class TaskCommentController extends Controller
      */
     public function update(Request $request, TasksComments $tasksComments)
     {
-        //
+        $id = $request->cm_id;
+        $t = $request->ta_id;
+
+        TasksComments::where('id', $id)->update([
+           'comment' => $request->commentas
+        ]);
+
+        return redirect(route('tasks.show', $t));
+
     }
 
     /**
