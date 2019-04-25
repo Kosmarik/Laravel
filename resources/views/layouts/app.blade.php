@@ -35,15 +35,17 @@
     {{--CSS--}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 
-
+    {{--Particles--}}
+    <link rel="stylesheet" type="text/css" href="{{asset('css/particles/particles.css')}}">
+    <script src="{{asset('js/particles/particles.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js" defer></script>
 
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel my-navbar">
+    <div  id="particles-js">
+    <div id="app" class="page-wrapper">
+        <nav class="navbar navbar-expand-md navbar-light ">
             <div class="container">
-
-
 
                 {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
                     {{--<span class="navbar-toggler-icon"></span>--}}
@@ -58,11 +60,11 @@
                         @guest
                             <ul class=" navbar-nav ml-auto text-center">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white" href="/login">{{ __('Login') }}</a>
+                                    <a class="nav-link text-white my-nav-btn" href="/login">{{ __('Login') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     @if (Route::has('register'))
-                                        <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link text-white my-nav-btn" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     @endif
                                 </li>
                             </ul>
@@ -122,8 +124,9 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+                @yield('content')
         </main>
+    </div>
     </div>
 </body>
 </html>

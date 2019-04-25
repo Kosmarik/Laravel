@@ -232,3 +232,10 @@ td{
 .login-a{
     color: white;
 }
+.my-nav-btn{
+    border: 4px white solid;
+    width: 80px;
+    height: 58px;
+    border-radius: 15px;
+    margin-left: 10px;
+}

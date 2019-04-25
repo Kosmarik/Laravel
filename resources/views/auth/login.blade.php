@@ -26,8 +26,6 @@
                     @endif
                     <br>
                     <div class="login-submit-div">
-
-
                         <button type="submit" class=" login-btn">
                             {{ __('Login') }}
                         </button>
