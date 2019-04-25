@@ -42,88 +42,85 @@
 
 </head>
 <body>
-    <div  id="particles-js">
-    <div id="app" class="page-wrapper">
-        <nav class="navbar navbar-expand-md navbar-light ">
+    <div  id="particles-js"></div>
+    <div id="page-wrapper">
+    <div id="app">
+        <nav class="my-navbar">
             <div class="container">
+                @guest
+                    <div class="navbar-item">
+                        <a title="Login" href="/login">
+                            <span class="glyphicon glyphicon-floppy-saved"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-item">
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" title="Register">
+                                <span class="glyphicon glyphicon-floppy-remove"></span>
+                            </a>
+                        @endif
+                    </div>
 
-                {{--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
-                    {{--<span class="navbar-toggler-icon"></span>--}}
-                {{--</button>--}}
 
-                <div class=" navbar-collapse " id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                        <li class="nav-item">
 
-                    <!-- Right Side Of Navbar -->
-
-                        <!-- Authentication Links -->
-                        @guest
-                            <ul class=" navbar-nav ml-auto text-center">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white my-nav-btn" href="/login">{{ __('Login') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    @if (Route::has('register'))
-                                        <a class="nav-link text-white my-nav-btn" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </li>
-                            </ul>
-                        @else
-                            {{--Left nav--}}
-                                {{--Nav Home Icon--}}
-                                <a title="Home" class="navbar-brand text-white" href="{{ url('/') }}">
-                                    <span class="glyphicon glyphicon-home"></span>
-                                </a>
-
-                                {{--Nav Tasks Icon--}}
-                                <a title="Tasks" class="navbar-brand text-white" href="{{ url('/tasks') }}">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </a>
-
-                                {{--Nav Projects Icon--}}
-                                <a title="Projects" class="navbar-brand text-white" href="{{ url('/projects') }}">
-                                    <span class="glyphicon glyphicon-list-alt"></span>
-                                </a>
-
-                                {{--Nav Invoice Icon--}}
-                                <a title="Companies for Invoice" class="navbar-brand text-white" href="{{ url('/companies') }}">
-                                    <span class="glyphicon glyphicon-eur"></span>
-                                </a>
-
-                                {{--Nav Vocabulary Icon--}}
-                                @role('admin')
-                                <a title="Vocabulary" class="navbar-brand text-white" href="{{ url('/admin') }}">
-                                    <span class="glyphicon glyphicon-font"></span>
-                                </a>
-                                @endrole
-                            {{--Right Nav--}}
-                             <ul class=" navbar-nav ml-auto text-center">
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right my-drop" aria-labelledby="navbarDropdown">
-
-                                        <a class="dropdown-item text-danger " href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-                                        {{--<p class="dropdown-item"></p>--}}
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-
-                                 </li>
-                             </ul>
-                        @endguest
+                        </li>
+                @else
+                    <div class="navbar-item">
+                        <a title="Home" href="{{ url('/') }}">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-item">
+                        <a title="Tasks" href="{{ url('/tasks') }}">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-item">
+                        <a title="Projects" href="{{ url('/projects') }}">
+                            <span class="glyphicon glyphicon-list-alt"></span>
+                        </a>
+                    </div>
+                <div class="navbar-item">
+                    <a title="Companies for Invoice" href="{{ url('/companies') }}">
+                        <span class="glyphicon glyphicon-eur"></span>
+                    </a>
                 </div>
+                @role('admin')
+                <div class="navbar-item">
+                    <a title="Vocabulary" href="{{ url('/admin') }}">
+                        <span class="glyphicon glyphicon-font"></span>
+                    </a>
+                </div>
+                @endrole
+                <br>
+                {{--Right Nav--}}
+                <ul class=" navbar-nav ml-auto text-center">
+                    <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="navbar-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{--{{ Auth::user()->name }}--}}
+                                <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                        <div class="dropdown-menu dropdown-menu-right my-drop" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item text-danger " href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+                            {{--<p class="dropdown-item"></p>--}}
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+
+                    </li>
+                </ul>
+                @endguest
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" class="paddings">
                 @yield('content')
         </main>
     </div>

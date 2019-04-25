@@ -46,9 +46,6 @@ td{
     padding: 10px;
     height: max-content;
 }
-.my-navbar{
-    background-color: #1d2124;
-}
 .my-drop{
      background-color: #1d2124;
     opacity: 50%;
@@ -156,11 +153,21 @@ td{
     animation-name: second-div-animation;
     animation-duration: 1.5s;
     position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 40px;
+    display: flex;
+    color: white;
 }
 .second-div{
     animation-name: second-div-animation;
     animation-duration: 2s;
     position: relative;
+    width: 100%;
+    height: 500px;
+    padding: 40px;
+    display: flex;
+    color: white;
 }
 @keyframes first-div-animation {
     0%   {left: 1000px;}
@@ -238,4 +245,24 @@ td{
     height: 58px;
     border-radius: 15px;
     margin-left: 10px;
+}
+
+/*navbar*/
+.my-navbar{
+    width: 5%;
+    padding-top: 3%;
+    height: 100vh;
+    position: fixed;
+    background-color: black;
+    opacity: 0.2;
+}
+.paddings{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10%;
+}
+.navbar-item{
+    color: white;
+    font-size: xx-large;
+    margin-top: 15px;
 }
