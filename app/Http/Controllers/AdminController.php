@@ -86,12 +86,10 @@ class AdminController extends Controller
         //
     }
 
-    public function setRole(Request $request){
+    public function setRole(Request $request)
+    {
         $user = $request['user'];
         $role = $request['role'];
-
-//        echo $user . '<br>' . $role;
-        //find user by $user
         $findUser = User::find($user);
         $findUser->assignRole($role);
 

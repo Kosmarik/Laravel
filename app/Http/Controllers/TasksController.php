@@ -29,31 +29,15 @@ class TasksController extends Controller
      */
     public function index()
     {
-//        $role = Role::findByName('client');
-//        $role->givePermissionTo('create task');
-
-//        //Find user by id..
-//            $user = Auth::user();
-//            echo $user->hasRole('admin');
-//        //Set role to user..
-//        $user->assignRole('client');
-
-
-
-
-
         $user = Auth::user();
 
-
-        if($user->hasRole('client')){
+        if ($user->hasRole('client')) {
             $tasks = Tasks::where('active',1)->where('author_id',$user->id)->get();
-        }else{
+        } else {
             $tasks = Tasks::where('active',1)->get();
         }
 
-
         return view('tasks.index')->with('tasks', $tasks);
-
     }
 
     /**
@@ -80,22 +64,6 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-//        $this->validate($request, [
-//
-//            'title' => 'required|unique:tasks,title',
-//            'task_content' => 'required',
-//            'estimated_time' => 'integer',
-//            'start_date' => 'required|date',
-//            'deadline_date' => 'required|after:date',
-//            'fixed_rate' => 'integer',
-//            'author' => 'integer',
-//            'client' => 'integer',
-//            'project' => 'integer',
-//            'status' => 'integer',
-//            'priority' => 'integer'
-//        ]);
-
-
        $task = new Tasks();
        $task->title = $request->title;
        $task->content = $request->task_content;
@@ -112,6 +80,7 @@ class TasksController extends Controller
        $task->fixed_rate = $request->fixed_rate;
        $task->active = 1;
        $task->save();
+
        return redirect('tasks');
     }
 
@@ -127,6 +96,7 @@ class TasksController extends Controller
         $comments = $comments->reverse();
         $task['comment'] = $comments;
         $task['task'] = Tasks::find($id);
+
         return view('tasks.single', $task);
     }
 
@@ -144,6 +114,7 @@ class TasksController extends Controller
         $data['priority'] = Priority::all();
         $data['users'] = User::all();
         $data['companies'] = User::all();
+
         return view('tasks.edit', $data);
     }
 
@@ -172,6 +143,7 @@ class TasksController extends Controller
             'client_id' =>$request->client
 
         ]);
+
         return redirect(route('tasks.show', $id));
     }
 
@@ -183,18 +155,18 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-//      Tasks::destroy($id);
         $task = Tasks::find($id);
         $task->active=0;
         $task->save();
+
         return redirect('tasks');
     }
 
-    public function pdf($id){
+    public function pdf($id)
+    {
         $task = Tasks::find($id);
 
         return view('tasks.taskPDF')->with('task', $task);
-
     }
 
 
@@ -204,14 +176,16 @@ class TasksController extends Controller
         $task = Tasks::find($request->id);
         view()->share('task',$task);
 
-        if($request->has('download')){
+        if ($request->has('download')) {
             // Set extra option
             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
             // pass view file
             $pdf = PDF::loadView('tasks.taskPDF');
+
             // download pdf
             return $pdf->download('pdfview.pdf');
         }
+
         return view('tasks.taskPDF');
     }
 
@@ -221,12 +195,8 @@ class TasksController extends Controller
         $end = $_POST['deadline_date'];
 
         Tasks::where('title',$task_title)->update([
-
-                'start_date'=>$start,
-                'deadline_date'=>$end
-
-            ]);
-
-
+            'start_date'=>$start,
+            'deadline_date'=>$end
+        ]);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Companies;
 use App\Tasks;
-use NumberToWords\NumberToWords;
+//use NumberToWords\NumberToWords;
 use PDF;
 
 class CompaniesController extends Controller
@@ -17,7 +17,6 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-
         $companies = Companies::all();
         return view('companies.index')->with('companies', $companies);
     }
@@ -57,16 +56,14 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-
         $data['company'] = Companies::find($id);
         $tasks = Tasks::where('client_id', $id)->get();
 
-        foreach ($tasks as $task){
+        foreach ($tasks as $task) {
             if($task->active == 1){
                 $data['tasks'][] = $task;
             }
         }
-
 
         return view('companies.single',$data);
     }
@@ -99,6 +96,7 @@ class CompaniesController extends Controller
             'company_code' => $request->company_code,
             'vat_code' => $request->vat_code
         ]);
+
         return redirect(route('companies.show', $id));
     }
 
@@ -114,29 +112,23 @@ class CompaniesController extends Controller
     }
 
     public function faktura( Request $request){
-        if(empty($request->checkboxArray) && empty($request->task_id)){
+        if (empty($request->checkboxArray) && empty($request->task_id)) {
 
             return redirect("http://185.80.130.158/companies/$request->id");
 
         }
-        if(empty($request->checkboxArray)){
+        if (empty($request->checkboxArray)) {
             $task_id = $request->task_id;
             $data['tasks'][] = Tasks::find($task_id);
-        }
-        else{
+        } else {
             $task_id = $request->checkboxArray;
             foreach ($task_id as $task) {
                 $data['tasks'][] = Tasks::find($task);
             }
         }
-//        echo '<pre>';
-//        print_r($data['task']);
+
         $company_id = $request->id;
-//
         $data['company'] = Companies::find($company_id);
-
-        //$data['tasks'] = Tasks::find($task_id);
-
 
         return view('companies.invoice', $data);
     }
@@ -145,20 +137,22 @@ class CompaniesController extends Controller
     {
         $data['company'] = Companies::find($request->id);
 
-        foreach ($request->task_id as $taskID){
+        foreach ($request->task_id as $taskID) {
             $data['tasks'][] = Tasks::find($taskID);
         }
-//
+
         view()->share('companies.invoicePDF',$data);
-//
-        if($request->has('download')){
+
+        if ($request->has('download')) {
             // Set extra option
             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
             // pass view file
             $pdf = PDF::loadView('companies.invoicePDF', $data);
+
             // download pdf
             return $pdf->download('pdfview.pdf');
         }
+
         return view('companies.invoicePDF', $data);
     }
 

@@ -16,8 +16,8 @@ class TasksCalendarController extends Controller
     public function index()
     {
         $tasks = Tasks::where('active',1)->get();
-        return view('calendar/index')->with('tasks', $tasks);
 
+        return view('calendar/index')->with('tasks', $tasks);
     }
 
     /**

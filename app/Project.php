@@ -3,21 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//use App\Tasks;
 
 class Project extends Model
 {
     public $timestamps = false;
 
-    public function tasks(){
+    public function tasks()
+    {
         return $this->hasMany('App\Tasks', 'project_id', 'id');
     }
 
-    public function owner(){
+    public function owner()
+    {
         return $this->hasOne('App\User', 'id', 'project_owner_id');
     }
 
-    public function admin(){
+    public function admin()
+    {
         return $this->hasOne('App\User', 'id', 'admin_id');
     }
 }

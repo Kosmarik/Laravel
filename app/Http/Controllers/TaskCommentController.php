@@ -15,7 +15,6 @@ class TaskCommentController extends Controller
     public function index()
     {
         return view('tasks.index');
-
     }
 
     /**
@@ -35,12 +34,14 @@ class TaskCommentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   $id = $request->task_id;
+    {
+        $id = $request->task_id;
         $comment = new TasksComments();
         $comment->author_id = $request->author_id;
         $comment->task_id = $request->task_id;
         $comment->comment = $request->comment;
         $comment->save();
+
         return redirect("http://185.80.130.158/tasks/$id");
     }
 
@@ -98,8 +99,7 @@ class TaskCommentController extends Controller
         $task = $request->task_id;
 
         TasksComments::find($id)->delete();
+
         return redirect("http://185.80.130.158/tasks/$task");
-
-
     }
 }

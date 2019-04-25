@@ -32,8 +32,8 @@
     <script src='../../../node_modules/moment/min/moment.min.js'></script>
     <script src='../../../node_modules/fullcalendar/dist/fullcalendar.js'></script>
 
-
-
+    {{--CSS--}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
 
 
 

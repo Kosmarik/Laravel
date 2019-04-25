@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-
-
+    
     <div class="d-flex justify-content-between">
         <div class="calendar col-md-8"  style="min-width: 300px;">
             <div id='calendar'></div>
         </div>
         <div class="container col-md-3" style="border-left: 5px black solid">
             <h3>All Tasks</h3>
+            <button id="done" class="btn btn-success">Done</button>
+            <button id="inProgres" class="btn btn-warning">In Progres</button>
+            <button id="new" class="btn btn-danger">New</button>
 
                             @foreach($tasks as $task)
-                                <div style="min-width: 300px;margin: 0 auto; font-size: larger; ">
-                                    <div class="card" style="width: 60%; min-width: 300px;">
+                                <div style="min-width: 300px;margin: 0 auto; font-size: larger;  ">
+                                    <div class="" style="width: 60%; min-width: 300px;">
                                         @if ($task->status->name === 'Done')
-                                            <div class="d-flex justify-content-between task-container-hover" style="width: 100%; border: 1px black solid;padding: 10px;">
+                                            <div class=" justify-content-between task-container-hover done" style="width: 100%; border: 1px black solid;padding: 10px; display: none;">
                                                 <div>
                                                     {{$task->title}}
                                                 </div>
@@ -25,7 +27,7 @@
                                                 </div>
                                             </div>
                                         @elseif ($task->status->name === 'In Progres')
-                                            <div class="d-flex justify-content-between task-container-hover" style="width: 100%; border: 1px black solid;padding: 10px;">
+                                            <div class=" justify-content-between task-container-hover in-progres" style="display: none; width: 100%; border: 1px black solid;padding: 10px;">
                                                 <div>
                                                     {{$task->title}}
                                                 </div>
@@ -36,7 +38,7 @@
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="d-flex justify-content-between task-container-hover" style="width: 100%; border: 1px black solid; padding: 10px;">
+                                            <div class=" justify-content-between task-container-hover new" style="display: none; width: 100%; border: 1px black solid; padding: 10px;">
                                                 <div>
                                                     {{$task->title}}
                                                 </div>
@@ -50,6 +52,7 @@
                                     </div>
                                 </div>
                             @endforeach
+
             <div class="text-center" style=" width: 60%; margin-top: 20px; min-width: 300px;">
                 <a href="http://185.80.130.158/tasks/create" style="color: springgreen; font-size: xx-large">
                     <span class="glyphicon glyphicon-plus-sign"></span>
@@ -127,5 +130,19 @@
 
 
         });
+
+        $(document).ready(function() {
+            $('#done').click(function(){
+                $('.done').toggle('blind');
+            });
+
+            $('#inProgres').click(function() {
+                $('.in-progres').toggle('clip');
+            });
+
+            $('#new').click(function() {
+                $('.new').toggle(1000);
+            });
+        })
     </script>
 @endsection

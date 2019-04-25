@@ -20,10 +20,10 @@ class ProjectsController extends Controller
     {
         $user = Auth::user();
 
-        if($user->hasRole('client')){
+        if ($user->hasRole('client')) {
             $projects = Project::where('active',1)->where('project_owner_id',$user->id)->get();
 
-        }else{
+        } else {
             $projects = Project::where('active',1)->get();
         }
 
@@ -56,7 +56,6 @@ class ProjectsController extends Controller
     public function store(Request $request)
     {
         $project = new Project();
-
         $project->name = $request->project_name;
         $project->description = $request->description;
         $project->project_owner_id = $request->project_owner_id;
@@ -70,6 +69,7 @@ class ProjectsController extends Controller
         $project->details_id = $request->details_id;
         $project->active = 1;
         $project->save();
+
         return redirect('projects');
     }
 
@@ -83,6 +83,7 @@ class ProjectsController extends Controller
     {
         $data['data'] = Project::find($id);
         $data['owner'] = User::all();
+
         return view('projects.single', $data);
     }
 
@@ -124,6 +125,7 @@ class ProjectsController extends Controller
             "logo_url"=>$request->logo_url,
             "system_type"=>$request->system_type
         ]);
+
         return redirect(route('projects.show', $id));
     }
 
@@ -135,10 +137,10 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-//        Project::destroy($id);
         $projects = Project::find($id);
         $projects->active = 0;
         $projects->save();
+
         return redirect('projects');
     }
 }

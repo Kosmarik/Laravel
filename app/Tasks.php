@@ -12,27 +12,33 @@ class Tasks extends Model
 
     protected $guard_name = 'web';
 
-    public function status(){
+    public function status()
+    {
         return $this->hasOne('App\Status', 'id', 'status_id');
     }
 
-    public function project(){
+    public function project()
+    {
         return $this->hasOne('App\Project', 'id', 'project_id');
     }
 
-    public function priority(){
+    public function priority()
+    {
         return $this->hasOne('App\Priority', 'id', 'priority_id');
     }
 
-    public function author(){
+    public function author()
+    {
         return $this->hasOne('App\User', 'id', 'author_id');
     }
 
-    public function client(){
+    public function client()
+    {
         return $this->hasOne('App\User', 'id', 'client_id');
     }
 
-    public function imone(){
+    public function imone()
+    {
         return $this->hasOne('App\Companies', 'id', 'client_id');
     }
 

@@ -1,11 +1,24 @@
+body{
+    /*background-image: url('../img/gaming-pattern/gaming-pattern.png');*/
+    /*background-color: #f1f1f1;*/
+    background-image: linear-gradient(45deg, #59c173, #a17fe0, #5d26c1,#59c173);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+html{
+    min-height: 100%;
+}
+table,th{
+    border: 1px black solid;
+    font-size: medium;
+    width: 100%;
+}
+td{
+    border: black 1px solid;
+}
 .comment-card{
     border-radius: 30px;
     height: 400px;
     text-align: left;
-}
-body{
-    background-image: url('../img/gaming-pattern/gaming-pattern.png');
-    background-color: #f1f1f1;
 }
 .for-comment-name{
     margin-top: 10px;
@@ -44,8 +57,6 @@ body{
     background-color: #1d2124 ;
 }
 
-
-
 /*Invoice*/
 .invoice-container{
     width: 8.3in;
@@ -83,14 +94,6 @@ body{
     text-align: left;
 
     /*background-color: yellow;*/
-}
-table,th{
-    border: 1px black solid;
-    font-size: medium;
-    width: 100%;
-}
-td{
-    border: black 1px solid;
 }
 .left-td{
     width: 30%;
@@ -143,7 +146,6 @@ td{
     /*background-color: mintcream;*/
     width: 50%;
 }
-
 .task-container-hover:hover{
     background-color: 	#DCDCDC;
 }
@@ -169,3 +171,64 @@ td{
     100% {right: 0px;}
 }
 
+.done{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+    border: 3px springgreen solid;
+}
+.in-progres{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+    border: 3px orange solid;
+}
+.new{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    font-size: large;
+    border: 3px red solid;
+}
+.login-form-container{
+    border: white 3px solid;
+    border-radius: 30px;
+    padding: 20px;
+    text-align: center;
+}
+.login-input{
+    width: 60%;
+    background-color: unset;
+    border-bottom: 3px white solid;
+    margin-top: 20px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    text-align: center;
+    font-size: x-large;
+    color: white;
+}
+.login-submit-div{
+    margin-top: 20px;
+    color: white;
+}
+.login-btn{
+    background-image: linear-gradient(45deg, #59c173, #a17fe0, #5d26c1,#59c173);
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: large;
+    color: white;
+}
+.login-checkbox-div{
+    margin-top: 20px;
+}
+.login-a{
+    color: white;
+}
